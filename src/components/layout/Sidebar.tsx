@@ -1,0 +1,79 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ThemeToggle } from "../ThemeToggle";
+import {
+  Home,
+  User,
+  Trophy,
+  Briefcase,
+  Mail
+} from "lucide-react";
+
+const navItems = [
+  { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "/about", icon: User },
+  { name: "Achievements", href: "/achievements", icon: Trophy },
+  { name: "Project", href: "/project", icon: Briefcase },
+  { name: "Contact", href: "/contact", icon: Mail },
+];
+
+export function Sidebar() {
+  const pathname = usePathname();
+
+  return (
+    <aside className="w-64 flex-shrink-0 hidden md:flex flex-col border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0a0a0a] h-screen sticky top-0 overflow-y-auto py-8 px-6">
+
+      <div className="flex flex-col items-center mb-3">
+        <div className="relative w-24 h-24 rounded-full overflow-hidden mb-1 border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800">
+          <Image
+            src="/images/profile.png"
+            alt="Adrian Anugerah Maulana"
+            fill
+            className="object-cover"
+            sizes="(max-width: 96px) 100vw, 96px"
+          />
+        </div>
+        <h1 className="text-lg font-semibold text-zinc-900 dark:text-white text-center">
+          Adrian Anugerah Maulana
+        </h1>
+      </div>
+
+      <div className="mb-4">
+        <ThemeToggle />
+      </div>
+
+      <nav className="flex flex-col gap-1 flex-1">
+        {navItems.map((item) => {
+          const isActive = pathname === item.href;
+          const Icon = item.icon;
+
+          return (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium ${isActive
+                ? "bg-blue-600/10 text-blue-700 dark:text-blue-500"
+                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-100"
+                }`}
+            >
+              <Icon size={18} className={isActive ? "text-blue-700 dark:text-blue-500" : ""} />
+              {item.name}
+            </Link>
+          );
+        })}
+      </nav>
+
+      <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800 text-center">
+        <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          © {new Date().getFullYear()} Adrian Anugerah Maulana.
+          <br />
+          All rights reserved.
+        </p>
+      </div>
+
+    </aside>
+  );
+}
