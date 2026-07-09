@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { ThemeToggle } from "../ThemeToggle";
 import {
   Home,
@@ -22,6 +24,8 @@ const navItems = [
 
 export function Sidebar() {
   const pathname = usePathname();
+
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
     <aside className="w-64 flex-shrink-0 hidden md:flex flex-col border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0a0a0a] h-screen sticky top-0 overflow-y-auto py-8 px-6">
@@ -45,21 +49,36 @@ export function Sidebar() {
         <ThemeToggle />
       </div>
 
-      <nav className="flex flex-col gap-1 flex-1">
+      <nav 
+        className="flex flex-col gap-1 flex-1 relative"
+        onMouseLeave={() => setHoveredItem(null)}
+      >
         {navItems.map((item) => {
           const isActive = pathname === item.href;
+          const isHovered = hoveredItem === item.name;
+          const isHighlighted = hoveredItem ? isHovered : isActive;
           const Icon = item.icon;
 
           return (
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium ${isActive
-                ? "bg-blue-600/10 text-blue-700 dark:text-blue-500"
-                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:text-zinc-900 dark:hover:text-zinc-100"
-                }`}
+              onMouseEnter={() => setHoveredItem(item.name)}
+              className={`relative flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium z-10 ${
+                isHighlighted
+                  ? "text-blue-700 dark:text-blue-500"
+                  : "text-zinc-600 dark:text-zinc-400"
+              }`}
             >
-              <Icon size={18} className={isActive ? "text-blue-700 dark:text-blue-500" : ""} />
+              {isHighlighted && (
+                <motion.div
+                  layoutId="sidebar-active-indicator"
+                  className="absolute inset-0 bg-blue-600/10 dark:bg-blue-500/10 rounded-lg -z-10"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              
+              <Icon size={18} className={`transition-colors ${isHighlighted ? "text-blue-700 dark:text-blue-500" : ""}`} />
               {item.name}
             </Link>
           );
