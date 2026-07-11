@@ -13,6 +13,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Portfolio of Adrian A.M.",
   description: "Personal portfolio of Adrian Anugerah Maulana",
+  icons: [],
 };
 
 export default function RootLayout({
