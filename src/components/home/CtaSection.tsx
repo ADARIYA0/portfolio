@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { FaTelegramPlane } from "react-icons/fa";
 
 export default function CtaSection() {
   return (
@@ -22,27 +22,22 @@ export default function CtaSection() {
 
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-12 max-w-xl">
           I'm currently available for freelance work and full-time opportunities.
-          If you have a project that needs a robust backend architecture, I'd love to hear about it.
+          If you have a project that needs a robust backend architecture, I'd love to hear about it
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <Link
-            href="/contact"
-            className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-blue-600 dark:bg-blue-500 px-8 font-medium text-white dark:text-zinc-950 transition-all hover:bg-blue-700 dark:hover:bg-blue-400 w-full sm:w-auto shadow-[0_0_30px_rgba(37,99,235,0.2)] dark:shadow-[0_0_40px_rgba(59,130,246,0.2)] hover:shadow-[0_0_40px_rgba(37,99,235,0.3)] dark:hover:shadow-[0_0_60px_rgba(59,130,246,0.3)]"
-          >
-            <span className="mr-2 text-base">Contact Me</span>
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-
           <a
-            href="/resume.pdf"
+            href="https://t.me/adariya0"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex h-14 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 px-8 font-medium text-zinc-900 dark:text-white shadow-sm dark:shadow-none backdrop-blur-sm transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-blue-700 dark:hover:text-white w-full sm:w-auto"
+            className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-blue-600 dark:bg-blue-500 px-8 font-medium text-white dark:text-zinc-950 transition-all hover:bg-blue-700 dark:hover:bg-blue-400 w-full sm:w-auto shadow-[0_0_30px_rgba(37,99,235,0.2)] dark:shadow-[0_0_40px_rgba(59,130,246,0.2)] hover:shadow-[0_0_40px_rgba(37,99,235,0.3)] dark:hover:shadow-[0_0_60px_rgba(59,130,246,0.3)]"
           >
-            <Download className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-1" />
-            <span className="text-base">Download CV</span>
+            <FaTelegramPlane className="mr-2 h-5 w-5" />
+            <span className="text-base">Chat on Telegram</span>
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </a>
+
+
         </div>
       </motion.div>
     </section>

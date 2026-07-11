@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const experiences = [
   {
     company: "Self-employed",
-    role: "Freelance Developer & University Student",
+    role: "Freelancer & University Student",
     period: "Present",
     description: "Actively balancing academic pursuits with freelance software development, transforming client concepts into scalable digital solutions. Consistently delivering custom web and software applications while continuously expanding technical expertise in modern technology stacks.",
   },

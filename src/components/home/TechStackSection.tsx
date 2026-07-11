@@ -18,13 +18,19 @@ import {
   SiSupabase,
   SiGit,
   SiGithub,
-  SiNpm
+  SiNpm,
+  SiSqlite,
+  SiDocker,
+  SiApache,
+  SiNginx
 } from "react-icons/si";
-import { TbBrandVscode } from "react-icons/tb";
+import { TbBrandVscode, TbSql } from "react-icons/tb";
 
 const techStack = [
   { name: "VScode", category: "Tools", icon: <TbBrandVscode className="w-6 h-6 text-[#007ACC]" /> },
   { name: "PHP", category: "Programming Language", icon: <SiPhp className="w-6 h-6 text-[#777BB4]" /> },
+  { name: "SQL", category: "Programming Language", icon: <TbSql className="w-7 h-7 text-[#003B57] dark:text-[#E38C00]" /> },
+  { name: "Apache", category: "Web Server", icon: <SiApache className="w-6 h-6 text-[#D22128]" /> },
   { name: "MySQL", category: "Database", icon: <img src="https://upload.wikimedia.org/wikipedia/id/a/a9/MySQL.png" alt="MySQL" className="w-8 h-8 object-contain" /> },
   { name: "PhpMyAdmin", category: "Tools", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/PhpMyAdmin_logo.svg" alt="PhpMyAdmin" className="w-8 h-8 object-contain" /> },
   { name: "GitHub", category: "Tools", icon: <SiGithub className="w-6 h-6 text-zinc-900 dark:text-white" /> },
@@ -33,6 +39,7 @@ const techStack = [
   { name: "C/C++", category: "Programming Language", icon: <SiCplusplus className="w-6 h-6 text-[#00599C]" /> },
   { name: "Android Studio", category: "Tools", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Android_Studio_Logo_(2023).svg/1280px-Android_Studio_Logo_(2023).svg.png" alt="Android Studio" className="w-8 h-8 object-contain" /> },
   { name: "Java", category: "Programming Language", icon: <img src="https://education.oracle.com/file/general/p-80-java.png" alt="Java" className="w-8 h-8 object-contain" /> },
+  { name: "SQLite", category: "Database", icon: <SiSqlite className="w-6 h-6 text-[#003B57] dark:text-[#0089C9]" /> },
   { name: "C#", category: "Programming Language", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/C_Sharp_Logo_2023.svg/1280px-C_Sharp_Logo_2023.svg.png" alt="C#" className="w-8 h-8 object-contain" /> },
   { name: "Dotnet", category: "Framework & Runtime", icon: <SiDotnet className="w-6 h-6 text-[#512BD4]" /> },
   { name: "Git", category: "Tools", icon: <SiGit className="w-6 h-6 text-[#F05032]" /> },
@@ -40,15 +47,19 @@ const techStack = [
   { name: "Npm", category: "Tools", icon: <SiNpm className="w-6 h-6 text-[#CB3837]" /> },
   { name: "JavaScript", category: "Programming Language", icon: <SiJavascript className="w-6 h-6 text-[#F7DF1E]" /> },
   { name: "Express", category: "Framework & Runtime", icon: <SiExpress className="w-6 h-6 text-zinc-900 dark:text-white" /> },
+  { name: "Redis", category: "Database", icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" className="w-8 h-8 object-contain" /> },
   { name: "PostgreSQL", category: "Database", icon: <SiPostgresql className="w-6 h-6 text-[#4169E1]" /> },
+  { name: "Nginx", category: "Web Server", icon: <SiNginx className="w-6 h-6 text-[#009639]" /> },
+  { name: "Linux", category: "Tools", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="Linux" className="w-8 h-8 object-contain" /> },
   { name: "TypeScript", category: "Programming Language", icon: <SiTypescript className="w-6 h-6 text-[#3178C6]" /> },
   { name: "MariaDB", category: "Database", icon: <SiMariadb className="w-6 h-6 text-[#003545] dark:text-white" /> },
   { name: "Supabase", category: "Database", icon: <SiSupabase className="w-6 h-6 text-[#3ECF8E]" /> },
+  { name: "Docker", category: "Tools", icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
   { name: "Go", category: "Programming Language", icon: <SiGo className="w-6 h-6 text-[#00ADD8]" /> },
   { name: "Gin", category: "Framework & Runtime", icon: <img src="https://raw.githubusercontent.com/gin-gonic/logo/master/color.png" alt="Gin" className="w-8 h-8 object-contain" /> },
 ];
 
-const categories = ["All", "Programming Language", "Framework & Runtime", "Database", "Tools"];
+const categories = ["All", "Programming Language", "Framework & Runtime", "Database", "Web Server", "Tools"];
 
 export default function TechStackSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");

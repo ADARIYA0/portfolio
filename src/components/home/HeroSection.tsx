@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronRight, Code2 } from "lucide-react";
+import { ArrowRight, Download, Code2 } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -78,7 +78,7 @@ export default function HeroSection() {
           variants={item}
           className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl leading-relaxed"
         >
-          A software engineer passionate about backend architecture, system automation, and seamless deployment. I specialize in Linux, Docker, and building robust server-side applications
+          Building the resilient foundation of modern applications. A software engineer obsessed with system reliability, automated workflows, and crafting architectures that scale effortlessly
         </motion.p>
 
         <motion.div variants={item} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -89,13 +89,15 @@ export default function HeroSection() {
             <span className="mr-2">Let&apos;s talk</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
-          <Link
-            href="/projects"
-            className="group inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 px-8 font-medium text-zinc-900 dark:text-white shadow-sm transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800 w-full sm:w-auto"
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 px-8 font-medium text-zinc-900 dark:text-white shadow-sm dark:shadow-none backdrop-blur-sm transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-blue-700 dark:hover:text-white w-full sm:w-auto"
           >
-            <span className="mr-2">View Projects</span>
-            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+            <Download className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-1" />
+            <span>Resume</span>
+          </a>
         </motion.div>
 
         <motion.div variants={item} className="mt-12 md:mt-20 flex items-center gap-6 text-zinc-500 dark:text-zinc-500">

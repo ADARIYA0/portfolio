@@ -29,7 +29,7 @@ export default function AboutSection() {
             className="flex flex-col gap-6 text-zinc-600 dark:text-zinc-400"
           >
             <p className="text-2xl md:text-3xl leading-relaxed text-zinc-800 dark:text-zinc-300 font-medium mb-4">
-              I'm a Software Developer passionate about crafting robust backend systems and streamlining infrastructure with modern DevOps practices
+              I'm a Software Engineer passionate about crafting robust backend systems and streamlining infrastructure with modern DevOps practices
             </p>
 
             <p className="text-lg leading-relaxed">
