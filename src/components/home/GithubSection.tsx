@@ -3,7 +3,32 @@
 import { motion } from "framer-motion";
 import { GitHubCalendar } from "react-github-calendar";
 import { useTheme } from "@teispace/next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+
+interface GitHubActivity {
+  date: string;
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4;
+}
+
+interface GitHubOrganization {
+  href: string;
+  img?: string;
+  text: string;
+}
+
+interface GitHubContributedNode {
+  type: string;
+  href?: string;
+  value: string;
+}
+
+interface GitHubOverviewData {
+  enabled: boolean;
+  data: Record<string, number>;
+  organizations?: GitHubOrganization[];
+  contributedNodes?: GitHubContributedNode[];
+}
 
 const GITHUB_USERNAME = "ADARIYA0";
 const GITHUB_THEME = {
@@ -13,17 +38,19 @@ const GITHUB_THEME = {
 
 export default function GithubSection() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState<number | "last">(currentYear);
   const [size, setSize] = useState({ blockSize: 14, blockMargin: 4, fontSize: 14 });
 
-  const [overviewData, setOverviewData] = useState<any>(null);
+  const [overviewData, setOverviewData] = useState<GitHubOverviewData | null>(null);
   const [isOverviewEnabled, setIsOverviewEnabled] = useState(true);
 
   useEffect(() => {
-    setMounted(true);
-
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) setSize({ blockSize: 11, blockMargin: 3, fontSize: 11 });
@@ -48,7 +75,7 @@ export default function GithubSection() {
         } else {
           setIsOverviewEnabled(false);
         }
-      } catch (err) {
+      } catch {
         setIsOverviewEnabled(false);
       }
     };
@@ -57,10 +84,10 @@ export default function GithubSection() {
 
   const years = Array.from({ length: 4 }, (_, i) => currentYear - i);
 
-  const filterFutureDates = (data: any[]) => {
+  const filterFutureDates = (data: GitHubActivity[]) => {
     if (selectedYear === currentYear) {
       const today = new Date();
-      return data.filter((activity: any) => new Date(activity.date) <= today);
+      return data.filter((activity: GitHubActivity) => new Date(activity.date) <= today);
     }
     return data;
   };
@@ -120,9 +147,9 @@ export default function GithubSection() {
                     <div className="flex-1 flex flex-col gap-2">
                       {overviewData.organizations && overviewData.organizations.length > 0 && (
                         <div className="flex flex-wrap gap-2 pb-4 mb-2">
-                          {overviewData.organizations.map((org: any, i: number) => (
+                          {overviewData.organizations.map((org: GitHubOrganization, i: number) => (
                             <a key={i} href={`https://github.com${org.href}`} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800/60 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-xs font-semibold text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/50">
-                              {org.img && <img src={org.img} alt={org.text} className="w-4 h-4 rounded-md" />}
+                              {org.img && <img src={org.img} alt={org.text} className="w-4 h-4 rounded-md" />}{/* eslint-disable-line @next/next/no-img-element */}
                               {org.text}
                             </a>
                           ))}
@@ -135,8 +162,8 @@ export default function GithubSection() {
                           <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1v-1h-8a1 1 0 0 0-1 1Zm0-2v-1h-8a1 1 0 0 0-1 1Zm0-2v-1h-8a1 1 0 0 0-1 1Zm0-2v-1h-8a1 1 0 0 0-1 1Z" />
                         </svg>
                         <p className="leading-relaxed">
-                          {overviewData.contributedNodes?.length > 0 ? (
-                            overviewData.contributedNodes.map((node: any, i: number) => {
+                          {(overviewData.contributedNodes?.length ?? 0) > 0 ? (
+                            overviewData.contributedNodes!.map((node: GitHubContributedNode, i: number) => {
                               if (node.type === 'link') {
                                 return (
                                   <a key={i} href={`https://github.com${node.href}`} target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">

@@ -15,7 +15,7 @@ export default function HeroSection() {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [roles.length]);
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -29,7 +29,7 @@ export default function HeroSection() {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" as any, stiffness: 300, damping: 24 } },
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } },
   };
 
   return (

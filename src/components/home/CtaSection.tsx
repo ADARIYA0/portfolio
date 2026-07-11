@@ -16,13 +16,13 @@ export default function CtaSection() {
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] md:h-[400px] bg-blue-600/20 dark:bg-blue-500/15 blur-[90px] md:blur-[120px] rounded-full pointer-events-none -z-10" />
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white mb-6 leading-tight">
-          Let's build something <br className="hidden sm:block" />
+          Let&apos;s build something <br className="hidden sm:block" />
           amazing together
         </h2>
 
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-12 max-w-xl">
-          I'm currently available for freelance work and full-time opportunities.
-          If you have a project that needs a robust backend architecture, I'd love to hear about it
+          I&apos;m currently available for freelance work and full-time opportunities.
+          If you have a project that needs a robust backend architecture, I&apos;d love to hear about it
         </p>
 
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
