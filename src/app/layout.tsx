@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Sidebar } from "@/components/layout/Sidebar";
+import { EmailSidebar } from "@/components/layout/EmailSidebar";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -10,7 +11,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Adrian Anugerah Maulana | Portfolio",
+  title: "Portfolio of Adrian A.M.",
   description: "Personal portfolio of Adrian Anugerah Maulana",
 };
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <main className="flex-1 flex flex-col min-h-screen">
             {children}
           </main>
+          <EmailSidebar />
         </ThemeProvider>
       </body>
     </html>

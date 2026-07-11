@@ -18,7 +18,7 @@ const navItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: User },
   { name: "Achievements", href: "/achievements", icon: Trophy },
-  { name: "Project", href: "/project", icon: Briefcase },
+  { name: "Projects", href: "/projects", icon: Briefcase },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 
@@ -28,9 +28,9 @@ export function Sidebar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <aside className="w-64 flex-shrink-0 hidden md:flex flex-col border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0a0a0a] h-screen sticky top-0 overflow-y-auto py-8 px-6">
+    <aside className="w-64 flex-shrink-0 hidden lg:flex flex-col border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0a0a0a] h-screen sticky top-0 overflow-y-auto py-8 px-6">
 
-      <div className="flex flex-col items-center mb-3">
+      <div className="flex flex-col items-center mb-2">
         <div className="relative w-24 h-24 rounded-full overflow-hidden mb-1 border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800">
           <Image
             src="/images/profile.png"
@@ -49,7 +49,7 @@ export function Sidebar() {
         <ThemeToggle />
       </div>
 
-      <nav 
+      <nav
         className="flex flex-col gap-1 flex-1 relative"
         onMouseLeave={() => setHoveredItem(null)}
       >
@@ -64,11 +64,10 @@ export function Sidebar() {
               key={item.name}
               href={item.href}
               onMouseEnter={() => setHoveredItem(item.name)}
-              className={`relative flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium z-10 ${
-                isHighlighted
-                  ? "text-blue-700 dark:text-blue-500"
-                  : "text-zinc-600 dark:text-zinc-400"
-              }`}
+              className={`relative flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-sm font-medium z-10 ${isHighlighted
+                ? "text-blue-700 dark:text-blue-500"
+                : "text-zinc-600 dark:text-zinc-400"
+                }`}
             >
               {isHighlighted && (
                 <motion.div
@@ -77,7 +76,7 @@ export function Sidebar() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              
+
               <Icon size={18} className={`transition-colors ${isHighlighted ? "text-blue-700 dark:text-blue-500" : ""}`} />
               {item.name}
             </Link>

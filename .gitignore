@@ -43,6 +43,7 @@ next-env.d.ts
 # AI agent instruction files
 AGENTS.md
 CLAUDE.md
+GEMINI.md
 
 # .vscode
 .vscode
