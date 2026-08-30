@@ -16,7 +16,7 @@ interface DetailedExperience {
 const detailedExperiences: DetailedExperience[] = [
   {
     company: "Artificial Intelligence Center Indonesia (PT Artifisial Intelegensia Indonesia)",
-    companyShort: "AiCI",
+    companyShort: "Artificial Intelligence Center Indonesia (AiCI)",
     role: "Technical Support Intern",
     period: "Jan 2026 - Apr 2026",
     location: "Universitas Indonesia · On-site",
@@ -46,7 +46,7 @@ const detailedExperiences: DetailedExperience[] = [
 
 export default function DetailedExperienceSection() {
   return (
-    <section className="py-20 md:py-32 relative" id="detailed-experience">
+    <section className="pb-20 md:py-32 relative" id="detailed-experience">
       <div className="absolute top-0 left-10 w-px h-full bg-gradient-to-b from-transparent via-zinc-200 dark:via-zinc-800 to-transparent hidden md:block" />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 relative z-10">

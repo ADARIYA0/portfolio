@@ -6,7 +6,7 @@ import { GraduationCap, BookOpen, Trophy } from "lucide-react";
 const educations = [
   {
     institution: "Politeknik Elektronika Negeri Surabaya",
-    degree: "Bachelor of Informatics Engineering",
+    degree: "Pursuing a Bachelor's Degree in Informatics Engineering",
     period: "2026 - Present",
     icon: GraduationCap,
     iconSize: "w-5 h-5"
@@ -30,7 +30,7 @@ const educations = [
 
 export default function EducationSection() {
   return (
-    <section className="py-20 md:py-32 relative" id="education">
+    <section className="relative" id="education">
       <div className="absolute top-0 left-10 w-px h-full bg-gradient-to-b from-transparent via-zinc-200 dark:via-zinc-800 to-transparent hidden md:block" />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 relative z-10">
@@ -59,12 +59,10 @@ export default function EducationSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative flex flex-col md:flex-row md:gap-8"
               >
-                {/* Timeline icon and connecting line */}
                 <div className="hidden md:block absolute -left-[3.25rem] xl:-left-[4.25rem] top-1">
                   <div className="w-10 h-10 rounded-full border-2 border-blue-600 dark:border-blue-500 bg-white dark:bg-zinc-950 z-10 flex items-center justify-center relative">
                     <Icon className={`${iconSize} text-blue-600 dark:text-blue-500`} />
                   </div>
-                  {/* Vertical line connecting to next icon - only show if not last item */}
                   {index !== educations.length - 1 && (
                     <div className="absolute left-1/2 -translate-x-1/2 top-10 w-px bg-zinc-200 dark:bg-zinc-800 md:h-[130px] lg:h-[120px]" />
                   )}

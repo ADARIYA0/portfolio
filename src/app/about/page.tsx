@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex-1 w-full max-w-6xl mx-auto px-6 lg:px-12 flex flex-col pt-24 pb-12">
+    <div className="flex-1 w-full max-w-6xl mx-auto px-6 lg:px-12 flex flex-col pt-16 pb-12">
       <AboutMeSection />
       <DetailedExperienceSection />
       <EducationSection />
