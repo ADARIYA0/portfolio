@@ -21,7 +21,7 @@ export default function CtaSection() {
         </h2>
 
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-12 max-w-xl">
-          I&apos;m currently available for freelance work and full-time opportunities.
+          I&apos;m currently available for freelance work and part-time opportunities.
           If you have a project that needs a robust backend architecture, I&apos;d love to hear about it
         </p>
 
