@@ -1,6 +1,7 @@
 import AboutMeSection from "@/components/about/AboutMeSection";
 import DetailedExperienceSection from "@/components/about/DetailedExperienceSection";
 import EducationSection from "@/components/about/EducationSection";
+import { NavSpacer } from "@/components/layout/NavSpacer";
 
 export const metadata = {
   title: "About | Portfolio of Adrian A.M.",
@@ -10,6 +11,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="flex-1 w-full max-w-6xl mx-auto px-6 lg:px-12 flex flex-col pt-16 pb-12">
+      <NavSpacer />
       <AboutMeSection />
       <DetailedExperienceSection />
       <EducationSection />

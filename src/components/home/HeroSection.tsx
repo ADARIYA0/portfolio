@@ -80,18 +80,11 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div variants={item} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <Link
-            href="/contact"
-            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-blue-700 dark:bg-blue-500 px-8 font-medium text-white dark:text-zinc-950 transition-all hover:bg-blue-800 dark:hover:bg-blue-400 w-full sm:w-auto shadow-md"
-          >
-            <span className="mr-2">Let&apos;s talk</span>
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
           <a
             href="https://docs.google.com/document/d/1BRiwz_dg1Wcyd7bbh4bYnlSaij_aL1Ee/edit?usp=sharing&ouid=110342564122990671284&rtpof=true&sd=true"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 px-8 font-medium text-zinc-900 dark:text-white shadow-sm dark:shadow-none backdrop-blur-sm transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-blue-700 dark:hover:text-white w-full sm:w-auto"
+            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-blue-700 dark:bg-blue-500 px-8 font-medium text-white dark:text-zinc-950 transition-all hover:bg-blue-800 dark:hover:bg-blue-400 w-full sm:w-auto shadow-md"
           >
             <Download className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-1" />
             <span>Resume</span>

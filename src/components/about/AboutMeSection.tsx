@@ -16,7 +16,7 @@ export default function AboutMeSection() {
     <section className="pb-16 md:pb-0" id="about-me">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-y-0 lg:gap-x-4 relative z-10">
         
-        <div className="lg:col-span-7 lg:col-start-1 lg:row-start-1">
+        <div className="lg:col-span-8 lg:col-start-1 lg:row-start-1">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export default function AboutMeSection() {
           </motion.div>
         </div>
 
-        <div className="lg:col-span-5 lg:row-span-2 flex justify-center lg:pt-38">
+        <div className="lg:col-span-4 lg:col-start-9 lg:row-span-2 flex justify-center lg:justify-end lg:pt-38">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function AboutMeSection() {
           </motion.div>
         </div>
 
-        <div className="lg:col-span-7 lg:col-start-1 lg:row-start-2 text-zinc-600 dark:text-zinc-400">
+        <div className="lg:col-span-8 lg:col-start-1 lg:row-start-2 text-zinc-600 dark:text-zinc-400">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

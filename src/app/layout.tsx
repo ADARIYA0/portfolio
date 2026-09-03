@@ -4,8 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { EmailSidebar } from "@/components/layout/EmailSidebar";
-
 import { AnimatedBackground } from "@/components/layout/AnimatedBackground";
+import { NavigationWrapper } from "@/components/layout/NavigationWrapper";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -33,10 +33,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AnimatedBackground />
-          <Sidebar />
-          <main className="flex-1 flex flex-col min-h-screen">
+          
+          <NavigationWrapper>
             {children}
-          </main>
+          </NavigationWrapper>
+
           <EmailSidebar />
         </ThemeProvider>
       </body>

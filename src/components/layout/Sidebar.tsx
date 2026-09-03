@@ -18,8 +18,6 @@ const navItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: User },
   { name: "Achievements", href: "/achievements", icon: Trophy },
-  { name: "Projects", href: "/projects", icon: Briefcase },
-  { name: "Contact", href: "/contact", icon: Mail },
 ];
 
 export function Sidebar() {
