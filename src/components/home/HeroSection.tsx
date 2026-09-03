@@ -40,8 +40,6 @@ export default function HeroSection() {
         animate="show"
         className="relative flex flex-col items-center md:items-start max-w-4xl w-full"
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[600px] h-[400px] bg-blue-600/20 dark:bg-blue-500/15 blur-[90px] md:blur-[120px] rounded-full pointer-events-none -z-10" />
-
         <motion.div variants={item} className="mb-6 flex flex-wrap items-center gap-3">
           <div className="px-3 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 shadow-sm flex items-center gap-2 text-xs font-medium text-zinc-700 dark:text-zinc-300">
             <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-500 animate-pulse" />
