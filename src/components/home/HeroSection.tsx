@@ -88,7 +88,7 @@ export default function HeroSection() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
-            href="/resume.pdf"
+            href="https://docs.google.com/document/d/1BRiwz_dg1Wcyd7bbh4bYnlSaij_aL1Ee/edit?usp=sharing&ouid=110342564122990671284&rtpof=true&sd=true"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 px-8 font-medium text-zinc-900 dark:text-white shadow-sm dark:shadow-none backdrop-blur-sm transition-all hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-blue-700 dark:hover:text-white w-full sm:w-auto"
