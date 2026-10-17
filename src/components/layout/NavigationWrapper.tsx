@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { FloatingNavbar } from "./FloatingNavbar";
 import { MobileNavbar } from "./MobileNavbar";
-import { LayoutPanelLeft, CreditCard, Sun, Moon } from "lucide-react";
+import { LayoutPanelLeft, Sun, Moon } from "lucide-react";
 import { useTheme } from "@teispace/next-themes";
 import { NavigationContext } from "./NavigationContext";
 
@@ -14,14 +14,16 @@ export function NavigationWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <NavigationContext.Provider value={{ useNavbarDesktop }}>
-      {/* Desktop Mode Toggle Button */}
-      <button
-        onClick={() => setUseNavbarDesktop(!useNavbarDesktop)}
-        className="fixed bottom-6 right-6 z-50 hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-lg text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
-      >
-        {useNavbarDesktop ? <LayoutPanelLeft size={16} /> : <CreditCard size={16} />}
-        {useNavbarDesktop ? "Use Sidebar" : "Use Navbar"}
-      </button>
+      {/* Desktop Mode Toggle Button - Only shown in Navbar mode */}
+      {useNavbarDesktop && (
+        <button
+          onClick={() => setUseNavbarDesktop(false)}
+          className="fixed top-6 right-[4.5rem] z-50 hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:shadow-[0_0_20px_rgba(255,255,255,0.02)] text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/70 transition-colors"
+        >
+          <LayoutPanelLeft size={16} />
+          Use Sidebar
+        </button>
+      )}
 
       {/* Floating Theme Toggle for Tablet & Desktop Navbar mode */}
       <button
@@ -36,7 +38,7 @@ export function NavigationWrapper({ children }: { children: React.ReactNode }) {
       </button>
 
       {/* Desktop Navigation */}
-      {!useNavbarDesktop && <Sidebar />}
+      {!useNavbarDesktop && <Sidebar onToggleNavigation={() => setUseNavbarDesktop(true)} />}
 
       {/* Floating Navbar (Used for Tablet, and optionally Desktop) */}
       <FloatingNavbar showOnDesktop={useNavbarDesktop} />
