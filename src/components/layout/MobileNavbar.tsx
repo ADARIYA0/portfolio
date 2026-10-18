@@ -4,13 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Trophy, Menu, X, Sun, Moon } from "lucide-react";
+import { Home, User, Trophy, Menu, X, Sun, Moon, FolderGit2 } from "lucide-react";
 import { useTheme } from "@teispace/next-themes";
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: User },
   { name: "Achievements", href: "/achievements", icon: Trophy },
+  { name: "Projects", href: "/projects", icon: FolderGit2 },
 ];
 
 export function MobileNavbar() {

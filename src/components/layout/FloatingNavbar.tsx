@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Trophy } from "lucide-react";
+import { Home, User, Trophy, FolderGit2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: User },
   { name: "Achievements", href: "/achievements", icon: Trophy },
+  { name: "Projects", href: "/projects", icon: FolderGit2 },
 ];
 
 export function FloatingNavbar({ showOnDesktop = false }: { showOnDesktop?: boolean }) {
