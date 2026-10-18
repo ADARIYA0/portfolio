@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,11 +26,15 @@ export function ThemeToggle() {
     { id: "dark", icon: Moon, label: "Dark mode" }
   ];
 
+  // Use resolvedTheme to get the actual active theme (light or dark)
+  // When theme is "system", resolvedTheme will be the actual applied theme
+  const activeTheme = theme === "system" ? resolvedTheme : theme;
+
   return (
     <div className="flex items-center gap-1 bg-zinc-100 dark:bg-zinc-900 p-1 rounded-full w-full justify-between border border-zinc-200 dark:border-zinc-800">
       {tabs.map((tab) => {
         const Icon = tab.icon;
-        const isActive = theme === tab.id;
+        const isActive = activeTheme === tab.id;
 
         return (
           <button
